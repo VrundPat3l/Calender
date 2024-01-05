@@ -29,19 +29,20 @@ int main()
 	do
 	{
 		int year, month;
-
 		cout << "Enter year: ";
 		cin >> year;
 		cout << "Enter month(1 - 12): ";
 		cin >> month;
 
 		int days = DaysInMonth(month, year);
+		
 		std::array<std::string, 13> monthNames = {"", "Jan" , "Feb", "Mar" , "Apr" , "May" , "Jun" , "Jul" , "Aug" , "Sep" , "Oct", "Nov", "Dec"};
 		string monthName;
 		if (month <= 12 && month >= 1)
 		{
 			monthName = monthNames[month];
 		}
+		
 		cout << "\n============================\n";
 		cout << "          " << monthName << " " << year << "\n";
 		cout << "============================\n";
@@ -52,7 +53,6 @@ int main()
 		time_in.tm_mon = month - 1;
 		time_in.tm_mday = 1;
 		mktime(&time_in);
-
 		int StartingDay = time_in.tm_wday;
 
 		for (int i = 0; i < StartingDay; ++i)
